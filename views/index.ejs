@@ -15,9 +15,9 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <% players.forEach((player, index) => { %>
+                    <% var i=1; players.forEach((player, index) => { %>
                         <tr>
-                            <th scope="row"><%= index+1 %></th>
+                            <th scope="row"><%= index+1 %><%= i %></th>
                             <td><img src="/assets/img/<%= player.image %>" class="rounded-circle player-img" alt=""></td>
                             <td><%= player.first_name %></td>
                             <td><%= player.last_name %></td>
@@ -29,7 +29,7 @@
                                 <a href="player/delete/<%= player.id %>" class="btn btn-sm btn-danger">Delete</a>
                             </td>
                         </tr>
-                    <% }) %>
+                    <% i++; }) %>
                 </tbody>
             </table>
         <% } else { %>
