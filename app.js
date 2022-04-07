@@ -1,5 +1,6 @@
 const express = require('express');
 const fileUpload = require('express-fileupload');
+const connection = require('express-myconnection');
 const bodyParser = require('body-parser');
 const mysql = require('mysql2');
 const path = require('path');
