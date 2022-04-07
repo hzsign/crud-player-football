@@ -4,7 +4,7 @@ const connection = require('express-myconnection');
 const bodyParser = require('body-parser');
 const mysql = require('mysql2');
 const path = require('path');
-
+var http = require('http');
 const app = express();
 
 const playerRoutes = require('./routes/player.routes');
@@ -41,7 +41,7 @@ app.use(
 );
 
 // configure middleware
-app.set('port', process.env.port || port); // set express to use this port
+app.set('port', process.env.PORT || port); // set express to use this port
 app.set('views', __dirname + '/views'); // set express to look in this folder to render our view
 app.set('view engine', 'ejs'); // configure template engine
 app.use(bodyParser.urlencoded({
