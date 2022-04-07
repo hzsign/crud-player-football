@@ -40,7 +40,7 @@ app.use(
 );
 
 // configure middleware
-var port = normalizePort(process.env.PORT || '3000');
+var port = (process.env.PORT || '3000');
 app.set('port', port);
 
 /**
@@ -58,36 +58,16 @@ server.on('error', onError);
 server.on('listening', onListening);
 
 /**
- * Normalize a port into a number, string, or false.
- */
-
-function normalizePort(val) {
-    var port = parseInt(val, 10);
-
-    if (isNaN(port)) {
-        // named pipe
-        return val;
-    }
-
-    if (port >= 0) {
-        // port number
-        return port;
-    }
-
-    return false;
-}
-
-/**
  * Event listener for HTTP server "error" event.
- */
-process.once('SIGUSR2', function () {
-  process.kill(process.pid, 'SIGUSR2');
-});
+//  */
+// process.once('SIGUSR2', function () {
+//   process.kill(process.pid, 'SIGUSR2');
+// });
 
-process.on('SIGINT', function () {
-  // this is only called on ctrl+c, not restart
-  process.kill(process.pid, 'SIGINT');
-});
+// process.on('SIGINT', function () {
+//   // this is only called on ctrl+c, not restart
+//   process.kill(process.pid, 'SIGINT');
+// });
 function onError(error) {
     if (error.syscall !== 'listen') {
         throw error;
@@ -144,7 +124,7 @@ app.get('*', function (req, res, next) {
 
 });
 
-// set the app to listen on the port
-app.listen(port, () => {
-    console.log(`Server running on port: ${port}`);
-});
+// // set the app to listen on the port
+// app.listen(port, () => {
+//     console.log(`Server running on port: ${port}`);
+// });
