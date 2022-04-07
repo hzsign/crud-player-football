@@ -6,7 +6,7 @@ const mysql = require('mysql2');
 const path = require('path');
 var http = require('http');
 const app = express();
-
+var debug = require('debug')('myadmin:server');
 const playerRoutes = require('./routes/player.routes');
 const homeRoutes = require('./routes/index.routes');
 
