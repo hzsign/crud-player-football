@@ -9,7 +9,6 @@ const app = express();
 
 const playerRoutes = require('./routes/player.routes');
 const homeRoutes = require('./routes/index.routes');
-const port = 2000;
 
 
 // create connection to database
@@ -41,7 +40,12 @@ app.use(
 );
 
 // configure middleware
-app.set('port', process.env.PORT || port); // set express to use this port
+var port = (process.env.PORT || '3000');
+app.set('port', port);
+var server = http.createServer(app);
+server.listen(port);
+server.on('error', onError);
+server.on('listening', onListening);
 app.set('views', __dirname + '/views'); // set express to look in this folder to render our view
 app.set('view engine', 'ejs'); // configure template engine
 app.use(bodyParser.urlencoded({
