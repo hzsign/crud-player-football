@@ -80,7 +80,14 @@ function normalizePort(val) {
 /**
  * Event listener for HTTP server "error" event.
  */
+process.once('SIGUSR2', function () {
+  process.kill(process.pid, 'SIGUSR2');
+});
 
+process.on('SIGINT', function () {
+  // this is only called on ctrl+c, not restart
+  process.kill(process.pid, 'SIGINT');
+});
 function onError(error) {
     if (error.syscall !== 'listen') {
         throw error;
