@@ -44,8 +44,6 @@ var port = (process.env.PORT || '3000');
 app.set('port', port);
 var server = http.createServer(app);
 server.listen(port);
-server.on('error', onError);
-server.on('listening', onListening);
 app.set('views', __dirname + '/views'); // set express to look in this folder to render our view
 app.set('view engine', 'ejs'); // configure template engine
 app.use(bodyParser.urlencoded({
