@@ -1,4 +1,5 @@
 const fs = require('fs');
+const db = require('db');
 
 exports.getHomePage = (req, res) => {
     let query = "SELECT * FROM `players` ORDER BY id ASC"; // query database to get all the players
